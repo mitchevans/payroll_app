@@ -10,7 +10,9 @@ let Employee = require('./payroll.model');
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://127.0.0.1:27017/payrolldb', { useNewUrlParser: true });
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/payrolldb';
+
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 const connection = mongoose.connection;
 
 connection.once('open', function () {
