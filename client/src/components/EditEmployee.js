@@ -27,7 +27,7 @@ export default class EditEmployee extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/employees/' + this.props.match.params.id)
+        axios.get('http://localhost:5000/api/employees/' + this.props.match.params.id)
             .then(response => {
                 this.setState({
                     employee_name: response.data.employee_name,
@@ -98,7 +98,7 @@ export default class EditEmployee extends Component {
             employee_medical: this.state.employee_medical,
             employee_dental: this.state.employee_dental
         };
-        axios.delete('http://localhost:4000/employees/delete/'+this.props.match.params.id, obj)
+        axios.delete('http://localhost:5000/api/employees/delete/'+this.props.match.params.id, obj)
         .then(res => console.log(res.data));
 
             this.props.history.push('/');
@@ -116,7 +116,7 @@ export default class EditEmployee extends Component {
             employee_dental: this.state.employee_dental
         };
 
-        axios.post('http://localhost:4000/employees/update/'+this.props.match.params.id, obj)
+        axios.post('http://localhost:5000/api/employees/update/'+this.props.match.params.id, obj)
             .then(res => console.log(res.data));
 
             this.props.history.push('/');

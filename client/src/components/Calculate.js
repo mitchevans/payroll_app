@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -21,7 +20,7 @@ export default class Calculate extends Component {
     }
     
     componentDidMount() {
-        axios.get('http://localhost:4000/employees/' + this.props.match.params.id)
+        axios.get('http://localhost:5000/api/employees/' + this.props.match.params.id)
             .then(response => {
                 this.setState({
                     employee_name: response.data.employee_name,
