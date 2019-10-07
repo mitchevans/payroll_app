@@ -83,7 +83,7 @@ export default class CreateEmployee extends Component {
                 employee_medical: this.state.employee_medical
             }
 
-            axios.post('http://localhost:5000/api/employees/add', newEmployee)
+            axios.post('/api/employees/add', newEmployee)
                 .then(res => console.log(res.data));
 
             this.setState({
